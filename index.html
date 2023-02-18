@@ -20,7 +20,7 @@
           width: .7px;
         }
 
-        .w-2 {
+        .w-2-2 {
           width: 2.2px;
         }
 
@@ -261,12 +261,13 @@ function regulateThicknessLevel(n) {
     console.log(allScrollDivs);
     
     allScrollDivs.forEach((scrollDiv, idx) => {
-        if(n === idx){
-            scrollDiv.classList.remove('w-1');
-            scrollDiv.classList.add('w-2');
+        const prev = n-1;
+        if(n === idx || prev === idx ){
+            scrollDiv.children[0].classList.remove('w-1');
+            scrollDiv.children[0].classList.add('w-2-2');
         } else {
-            scrollDiv.classList.remove('w-2');
-            scrollDiv.classList.add('w-1');
+            scrollDiv.children[0].classList.remove('w-2-2');
+            scrollDiv.children[0].classList.add('w-1');
         }
     })
 }
