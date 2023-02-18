@@ -21,6 +21,10 @@
           width: .7px;
         }
 
+        .w-2 {
+          width: 1.7px;
+        }
+
         .h-full {
           height: 100%;
         }
@@ -83,6 +87,7 @@
           console.log(btnStates);
           handleScroll(currScrollT);
           checkOpacityLevel(currScrollT);
+          checkThicknessLevel(currScrollT);
           showButtons();
         }
       
@@ -94,6 +99,7 @@
             scrollTop = e.target.scrollTop;
             handleScroll(scrollTop);
             checkOpacityLevel(scrollTop);
+            checkThicknessLevel(scrollTop);
         }
 
         function showButtons() {
@@ -250,8 +256,42 @@
             allScrollDivs[6].classList.remove('opacity-10');
           }
         }
-
+        
+function regulateThicknessLevel(n) {
+    const allScrollDivs = document.querySelectorAll('div.det');
+    console.log(allScrollDivs);
+    
+    allScrollDivs.forEach((scrollDiv, idx) => {
+        if(n === idx){
+            scrollDiv.classList.remove('w-1');
+            scrollDiv.classList.add('w-2');
+        } else {
+            scrollDiv.classList.remove('w-2');
+            scrollDiv.classList.add('w-1');
+        }
+    })
+}
+        
+        function checkThicknessLevel(scrollT) {
+          
+          if(scrollT < 230) {
+            regulateThicknessLevel(0);    
+          } else if(scrollT > 230 && scrollT < 660) {
+            regulateThicknessLevel(0);
+          }  else if(scrollT > 660 && scrollT < 1090) {
+            regulateThicknessLevel(1);
+          }  else if(scrollT > 1090 && scrollT < 1520) {
+            regulateThicknessLevel(3);
+          }  else if(scrollT > 1520 && scrollT < 1950) {
+            regulateThicknessLevel(4);
+          }  else if(scrollT > 1950 && scrollT < 2380) {
+            regulateThicknessLevel(5);
+          } else if (scrollT > 2380) {
+            regulateThicknessLevel(6);;
+          }
+        }
         checkOpacityLevel(0);
+        checkThicknessLevel(0);
       </script>
 </body>
 </html>
