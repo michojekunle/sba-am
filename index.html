@@ -21,7 +21,7 @@
         }
 
         .w-2-2 {
-          width: 2.2px;
+          width: 3.2px;
         }
 
         .h-full {
@@ -277,9 +277,9 @@ function regulateThicknessLevel(n) {
           if(scrollT < 230) {
             regulateThicknessLevel(0);    
           } else if(scrollT > 230 && scrollT < 660) {
-            regulateThicknessLevel(0);
-          }  else if(scrollT > 660 && scrollT < 1090) {
             regulateThicknessLevel(1);
+          }  else if(scrollT > 660 && scrollT < 1090) {
+            regulateThicknessLevel(2);
           }  else if(scrollT > 1090 && scrollT < 1520) {
             regulateThicknessLevel(3);
           }  else if(scrollT > 1520 && scrollT < 1950) {
